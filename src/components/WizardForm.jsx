@@ -824,7 +824,7 @@ export default function WizardForm() {
                         '&.Mui-completed': { color: 'white' },
                       },
                       '& .MuiStepIcon-text': {
-                        fill: '#005A2B',
+                        // fill: '#005A2B',
                       },
                     }}
                   >
