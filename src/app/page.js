@@ -29,9 +29,9 @@ export default function Home() {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'center', // 水平置中
-            alignItems: 'center',     // 垂直置中
-            minHeight: '100vh',       // 確保容器佔據整個視窗高度
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '100vh',
           }}
         >
           <WizardForm />

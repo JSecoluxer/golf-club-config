@@ -9,16 +9,10 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
+  Switch,
 } from '@mui/material';
 
-/*
-const onChange = (e) => {
-  // 這裡應該有更新 data 狀態的邏輯
-  console.log(e.target.name, 'is now', e.target.checked);
-};
-*/
 export default function FeaturesComponent({ data, onChange }) {
-  // 使用 useState 來管理每個 checkbox 展開的狀態
   const [expanded, setExpanded] = useState({
     onlineBooking: true,
     memberManagement: true,
@@ -27,12 +21,9 @@ export default function FeaturesComponent({ data, onChange }) {
     courseManagement: true,
   });
 
-  // 處理 checkbox 變更，並切換展開狀態
   const handleCheckboxChange = (event) => {
-    // 你原有的 onChange 邏輯
     onChange(event);
 
-    // 切換對應的展開狀態
     setExpanded({
       ...expanded,
       [event.target.name.split('.').pop()]: event.target.checked,
@@ -50,15 +41,37 @@ export default function FeaturesComponent({ data, onChange }) {
       <Typography variant="h6" color="black" sx={{ marginBottom: 2 }}>
         Features
       </Typography>
-      <Grid container spacing={2} sx={{ justifyContent: 'flex-start', padding: 1 }}>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          justifyContent: 'flex-start',
+          padding: 1,
+          border: '1px solid black',
+          mb: 2,
+        }}
+      >
         <Grid item xs={12}>
           <FormControlLabel
             control={
-              <Checkbox
+              <Switch
                 checked={data.system.features.courseManagement}
                 onChange={handleCheckboxChange}
                 name="system.features.courseManagement"
-                sx={{ color: '#005A2B !important' }}
+                sx={{
+                  '& .MuiSwitch-switchBase.Mui-checked': {
+                    color: '#005A2B',
+                    '&:hover': {
+                      backgroundColor: 'rgba(253, 184, 19, 0.08)',
+                    },
+                  },
+                  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                    backgroundColor: '#005A2B !important',
+                  },
+                  '& .MuiSwitch-track': {
+                    backgroundColor: '#005A2B',
+                  },
+                }}
               />
             }
             label="Course Management"
@@ -67,7 +80,6 @@ export default function FeaturesComponent({ data, onChange }) {
         </Grid>
         {expanded.courseManagement && (
           <Grid item xs={12} sx={{ pl: 4, pt: 0 }}>
-            {/* 這裡放 Caddie Management 的相關設定 */}
             <Box sx={{ borderLeft: '2px solid #ddd', pl: 2, py: 1 }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend" sx={{ mb: 2, fontSize: '18px' }}>Course Management Settings</FormLabel>
@@ -108,16 +120,37 @@ export default function FeaturesComponent({ data, onChange }) {
           </Grid>
         )}
       </Grid>
-      {/* 其他 checkbox 區塊 (Caddie Management, etc.) 也可以依此模式實作 */}
-      <Grid container spacing={2} sx={{ justifyContent: 'flex-start', padding: 1 }}>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          justifyContent: 'flex-start',
+          padding: 1,
+          border: '1px solid black',
+          mb: 2,
+        }}
+      >
         <Grid item xs={12}>
           <FormControlLabel
             control={
-              <Checkbox
+              <Switch
                 checked={data.system.features.caddieManagement}
                 onChange={handleCheckboxChange}
                 name="system.features.caddieManagement"
-                sx={{ color: '#005A2B !important' }}
+                sx={{
+                  '& .MuiSwitch-switchBase.Mui-checked': {
+                    color: '#005A2B',
+                    '&:hover': {
+                      backgroundColor: 'rgba(253, 184, 19, 0.08)',
+                    },
+                  },
+                  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                    backgroundColor: '#005A2B !important',
+                  },
+                  '& .MuiSwitch-track': {
+                    backgroundColor: '#005A2B',
+                  },
+                }}
               />
             }
             label="Caddie Management"
@@ -126,7 +159,6 @@ export default function FeaturesComponent({ data, onChange }) {
         </Grid>
         {expanded.caddieManagement && (
           <Grid item xs={12} sx={{ pl: 4, pt: 0 }}>
-            {/* 這裡放 Caddie Management 的相關設定 */}
             <Box sx={{ borderLeft: '2px solid #ddd', pl: 2, py: 1 }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend" sx={{ mb: 2, fontSize: '18px' }}>Caddie Management Settings</FormLabel>
@@ -157,23 +189,43 @@ export default function FeaturesComponent({ data, onChange }) {
           </Grid>
         )}
       </Grid>
-      {/* Online Booking 區塊 */}
-      <Grid container spacing={7} sx={{ justifyContent: 'flex-start', padding: 1 }}>
+      <Grid
+        container
+        spacing={7}
+        sx={{
+          justifyContent: 'flex-start',
+          padding: 1,
+          border: '1px solid black',
+          // mb: 2,
+        }}
+      >
         <Grid item xs={12}>
           <FormControlLabel
             control={
-              <Checkbox
+              <Switch
                 checked={data.system.features.onlineBooking}
                 onChange={handleCheckboxChange}
                 name="system.features.onlineBooking"
-                sx={{ color: '#005A2B !important' }}
+                sx={{
+                  '& .MuiSwitch-switchBase.Mui-checked': {
+                    color: '#005A2B',
+                    '&:hover': {
+                      backgroundColor: 'rgba(253, 184, 19, 0.08)',
+                    },
+                  },
+                  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                    backgroundColor: '#005A2B !important',
+                  },
+                  '& .MuiSwitch-track': {
+                    backgroundColor: '#005A2B',
+                  },
+                }}
               />
             }
             label="Online Booking"
             sx={{ color: '#005A2B' }}
           />
         </Grid>
-        {/* 條件渲染：當 onlineBooking 被選中時才顯示子區域 */}
         {expanded.onlineBooking && (
           <Grid item xs={12} sx={{ pl: 4, pt: 0 }}>
             <Box sx={{ borderLeft: '2px solid #ddd', pl: 2, py: 1 }}>
@@ -187,7 +239,7 @@ export default function FeaturesComponent({ data, onChange }) {
                 size="small"
                 sx={{ mb: 2 }}
                 name="bookingUrl"
-              // onChange={...} // 這裡可以加入處理這個欄位的 onChange
+              // onChange={...}
               />
               <FormControl component="fieldset">
                 <FormLabel component="legend">Payment Options</FormLabel>

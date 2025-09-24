@@ -79,7 +79,7 @@ const LoginPage = ({ onLoginSuccess }) => {
             InputLabelProps={{
               sx: {
                 '&.Mui-focused': {
-                  color: 'white', // 將 'green' 替換成你想要的顏色
+                  color: 'white',
                 },
               },
             }}
@@ -106,7 +106,7 @@ const LoginPage = ({ onLoginSuccess }) => {
             InputLabelProps={{
               sx: {
                 '&.Mui-focused': {
-                  color: 'white', // 將 'green' 替換成你想要的顏色
+                  color: 'white',
                 },
               },
             }}
