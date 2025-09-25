@@ -34,7 +34,7 @@ const CompletePage = ({ onReset }) => {
           fontWeight: 'bold',
         }}
       >
-        Back to Home
+        Back to Step 1
       </Button>
     </Box>
   );

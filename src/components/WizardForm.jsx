@@ -1,5 +1,5 @@
 'use client';
- 
+
 import { useState } from 'react';
 import {
   Container,
@@ -17,13 +17,13 @@ import {
 
 import FeaturesComponent from './FeaturesComponent';
 import CompletePage from './CompletePage';
-import HolesPage from './HolesPage'; 
+import HolesPage from './HolesPage';
 
 // Initial JSON data structure
 const initialData = {
   tenantId: 'course-A',
-  name: 'Mirama Country Golf Club',
-  logoUrl: '/logos/miramar.png',
+  name: 'Ecolux Country Golf Club',
+  logoUrl: '/logos/ecolux.png',
   website: 'https://abc.example.com',
   address: 'Kaohsiung City',
   phone: '07-12345678',
@@ -57,7 +57,7 @@ const initialData = {
     },
   },
   customTexts: {
-    welcomeMessage: 'Welcome to Mirama Country Golf Club!',
+    welcomeMessage: 'Welcome to Ecolux Country Golf Club!',
     bookingPolicy: 'Please check in 30 mins before your tee time. For cancellations, please notify us at least 24 hours in advance.',
   },
   holes: [
@@ -515,7 +515,7 @@ const Step2Form = ({ data, onChange }) => (
       }}
     >
       <Typography variant="h6" color="black" sx={{ marginBottom: 5 }}>
-        Pricing    
+        Pricing
       </Typography>
       <Grid container spacing={2} sx={{ justifyContent: 'space-evenly', minHeight: '180px' }}>
         <Grid item xs={12}>
@@ -643,8 +643,8 @@ const Step2Form = ({ data, onChange }) => (
       }}
     >
       <Typography variant="h6" color="black" sx={{ marginBottom: 5 }}>
-          Booking Rules    
-        </Typography>
+        Booking Rules
+      </Typography>
       <Grid container spacing={2} sx={{ justifyContent: 'space-evenly' }}>
         <Grid item xs={12}>
           <TextField
@@ -707,7 +707,61 @@ const Step2Form = ({ data, onChange }) => (
 
 // Form for Step 3: Booking Rules
 const Step3Form = ({ data, onChange }) => (
-  <FeaturesComponent data={data} onChange={onChange} />
+  <>
+    <FeaturesComponent data={data} onChange={onChange} />
+    <Box
+      sx={{
+        backgroundColor: 'white',
+        p: 3,
+        borderRadius: '8px',
+        marginTop: 2,
+      }}
+    >
+      <Typography variant="h6" color="black" sx={{ marginBottom: 2 }}>
+        Printer
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sx={{ width: '100%' }}>
+          <TextField
+            fullWidth
+            label="Name"
+            name="printerName"
+            value={data.system.printer.name}
+            onChange={onChange}
+            margin="normal"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: '#005A2B' },
+                '&:hover fieldset': { borderColor: '#005A2B' },
+                '&.Mui-focused fieldset': { borderColor: '#005A2B' },
+              },
+              '& .MuiInputLabel-root': { color: '#005A2B' },
+              '& .MuiInputBase-input': { color: 'black' },
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} sx={{ width: '100%' }}>
+          <TextField
+            fullWidth
+            label="Type"
+            name="printerType"
+            value={data.system.printer.type}
+            onChange={onChange}
+            margin="normal"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: '#005A2B' },
+                '&:hover fieldset': { borderColor: '#005A2B' },
+                '&.Mui-focused fieldset': { borderColor: '#005A2B' },
+              },
+              '& .MuiInputLabel-root': { color: '#005A2B' },
+              '& .MuiInputBase-input': { color: 'black' },
+            }}
+          />
+        </Grid>
+      </Grid>
+    </Box>
+  </>
 );
 
 const getStepContent = (step, formData, handleChange, handleHolesUpdate) => {
@@ -717,15 +771,15 @@ const getStepContent = (step, formData, handleChange, handleHolesUpdate) => {
     case 1:
       return <Step2Form data={formData} onChange={handleChange} />;
     case 2:
-      return <Step3Form data={formData} onChange={handleChange} />;
-    case 3:
       return <HolesPage holes={formData.holes} onUpdate={handleHolesUpdate} />;
+    case 3:
+      return <Step3Form data={formData} onChange={handleChange} />;
     default:
       return 'Unknown step';
   }
 };
 
-const steps = ['Basic Info', 'Operation', 'System', 'Holes'];
+const steps = ['Basic Info', 'Operation', 'Holes', 'System'];
 
 export default function WizardForm() {
   const [activeStep, setActiveStep] = useState(0);
@@ -743,7 +797,7 @@ export default function WizardForm() {
       }
       currentLevel = currentLevel[keys[i]];
     }
-  
+
     currentLevel[keys[keys.length - 1]] = type === 'checkbox' ? checked : value;
     setFormData(newFormData);
   };
@@ -819,7 +873,7 @@ export default function WizardForm() {
                       },
                       '& .MuiStepIcon-root': {
                         color: '#a8a8a8ff',
-                        fontSize: '1.6rem',
+                        fontSize: '2rem',
                         '&.Mui-active': { color: '#FDB813' },
                         '&.Mui-completed': { color: 'white' },
                       },
@@ -833,7 +887,7 @@ export default function WizardForm() {
                 </Step>
               ))}
             </Stepper>
-            <Box sx={{ py: 2, flexGrow: 1, overflowY: 'auto' }}>{getStepContent(activeStep, formData, handleChange, handleHolesUpdate)}</Box>
+            <Box sx={{ px: 2, flexGrow: 1, overflowY: activeStep !== 2 ? 'auto' : 'initial' }}>{getStepContent(activeStep, formData, handleChange, handleHolesUpdate)}</Box>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 3, justifyContent: 'space-between' }}>
               {activeStep > 0 && (<Button
                 color="inherit"

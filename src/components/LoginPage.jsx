@@ -10,15 +10,24 @@ import {
 const LoginPage = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  // Fixed credentials for validation.
+  const fixedUsername = 'admin';
+  const fixedPassword = 'admin';
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Attempting to log in with:', { username, password });
-    // In a real app, you would validate credentials here.
-    // For this fake page, we'll just simulate a successful login.
-    setTimeout(() => {
-      onLoginSuccess();
-    }, 1000); // Simulate a network request delay
+
+    if (username === fixedUsername && password === fixedPassword) {
+      setError('');
+      // Simulate a network delay before calling the success function.
+      setTimeout(() => {
+        onLoginSuccess();
+      }, 500);
+    } else {
+      setError('Invalid username or password.');
+    }
   };
 
   return (
@@ -111,6 +120,11 @@ const LoginPage = ({ onLoginSuccess }) => {
               },
             }}
           />
+          {error && (
+            <Typography variant="body2" color="error" sx={{ textAlign: 'center', mb: 2, fontSize: '1rem' }}>
+              {error}
+            </Typography>
+          )}
           <Button
             type="submit"
             fullWidth

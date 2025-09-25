@@ -83,39 +83,39 @@ export default function FeaturesComponent({ data, onChange }) {
             <Box sx={{ borderLeft: '2px solid #ddd', pl: 2, py: 1 }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend" sx={{ mb: 2, fontSize: '18px' }}>Course Management Settings</FormLabel>
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<Checkbox name="firstTeeTime" />}
-                      label="First Tee Time"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="lastTeeTime" />}
-                      label="Last Tee Time"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="teeTimeInterval" />}
-                      label="Tee Time Interval"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="lateArrivalTime" />}
-                      label="Late Arrival Time"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="weekdaysMinGroupPlayers" />}
-                      label="Weekdays min number of players in a group"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="weekendMinGroupPlayers" />}
-                      label="Weekend min number of players in a group"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                  </FormGroup>
-                </FormControl>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox name="firstTeeTime" />}
+                    label="First Tee Time"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="lastTeeTime" />}
+                    label="Last Tee Time"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="teeTimeInterval" />}
+                    label="Tee Time Interval"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="lateArrivalTime" />}
+                    label="Late Arrival Time"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="weekdaysMinGroupPlayers" />}
+                    label="Weekdays min number of players in a group"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="weekendMinGroupPlayers" />}
+                    label="Weekend min number of players in a group"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                </FormGroup>
+              </FormControl>
             </Box>
           </Grid>
         )}
@@ -162,29 +162,29 @@ export default function FeaturesComponent({ data, onChange }) {
             <Box sx={{ borderLeft: '2px solid #ddd', pl: 2, py: 1 }}>
               <FormControl component="fieldset">
                 <FormLabel component="legend" sx={{ mb: 2, fontSize: '18px' }}>Caddie Management Settings</FormLabel>
-                  <FormGroup>
-                    <FormControlLabel
-                      control={<Checkbox name="caddieDutyStatus" />}
-                      label="Duty Status"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="caddieScheduling" />}
-                      label="Caddie Scheduling"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="caddieProfiles" />}
-                      label="Caddie Profiles"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                    <FormControlLabel
-                      control={<Checkbox name="caddieTiers" />}
-                      label="Caddie Tiers"
-                      sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
-                    />
-                  </FormGroup>
-                </FormControl>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox name="caddieDutyStatus" />}
+                    label="Duty Status"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="caddieScheduling" />}
+                    label="Caddie Scheduling"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="caddieProfiles" />}
+                    label="Caddie Profiles"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox name="caddieTiers" />}
+                    label="Caddie Tiers"
+                    sx={{ color: 'rgba(0, 0, 0, 0.6)' }}
+                  />
+                </FormGroup>
+              </FormControl>
             </Box>
           </Grid>
         )}
