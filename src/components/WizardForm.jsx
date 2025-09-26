@@ -784,6 +784,7 @@ const steps = ['Basic Info', 'Operation', 'Holes', 'System'];
 export default function WizardForm() {
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState(initialData);
+  const [finalConfig, setFinalConfig] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -819,12 +820,14 @@ export default function WizardForm() {
 
   const handleSubmit = () => {
     console.log('Final JSON Data:', JSON.stringify(formData, null, 2));
+    setFinalConfig(formData);
     setActiveStep(steps.length);
   };
 
   const handleReset = () => {
-    setActiveStep(0);
     setFormData(initialData);
+    setFinalConfig(null);
+    setActiveStep(0);
   };
 
   return (
@@ -853,7 +856,7 @@ export default function WizardForm() {
         }}
       >
         {activeStep === steps.length ? (
-          <CompletePage onReset={handleReset} />
+          <CompletePage onReset={handleReset} finalJson={finalConfig} />
         ) : (
           <>
             <Typography variant="h4" component="h1" gutterBottom color="white" sx={{ mb: 4, fontWeight: 'bold' }}>
